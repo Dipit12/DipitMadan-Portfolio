@@ -6,7 +6,7 @@ const Skills: React.FC = () => {
   const skillCategories = [
     {
       title: 'Programming Languages',
-      skills: ['Java', 'Python', 'JavaScript', 'TypeScript'],
+      skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'C++ / C'],
       color: 'cyber-pink'
     },
     {
@@ -16,23 +16,28 @@ const Skills: React.FC = () => {
     },
     {
       title: 'Backend Technologies',
-      skills: ['Node.js', 'Express.js', 'Flask'],
+      skills: ['Node.js', 'Express.js', 'Flask', 'FastAPI', 'Django'],
       color: 'cyber-purple'
     },
     {
       title: 'Databases',
-      skills: ['MongoDB', 'PostgreSQL'],
+      skills: ['MongoDB', 'PostgreSQL', 'Redis'],
       color: 'cyber-pink'
+    },
+    {
+      title: 'AI/ML',
+      skills: ['Langchain', 'Langgraph', 'Scikit-learn', 'numpy', 'pandas'],
+      color: 'cyber-cyan'
     },
     {
       title: 'DevOps & Cloud',
       skills: ['Docker', 'Kubernetes', 'AWS', 'Vercel', 'CI/CD', 'Prometheus', 'Grafana'],
-      color: 'cyber-cyan'
+      color: 'cyber-purple'
     },
     {
       title: 'Other Technologies',
-      skills: ['WebRTC', 'WebSockets', 'Redis', 'Kafka', 'Git', 'Sequelize ORM', 'Beautiful Soup'],
-      color: 'cyber-purple'
+      skills: ['WebRTC', 'WebSockets', 'Redis', 'Kafka', 'Git', 'Web Scraping'],
+      color: 'cyber-pink'
     }
   ];
 

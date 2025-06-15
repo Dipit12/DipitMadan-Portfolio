@@ -8,17 +8,17 @@ const Experience: React.FC = () => {
       company: 'AKQA (Part of WPP Group)',
       position: 'SDE Intern',
       location: 'Gurgaon',
-      duration: '01/2025 - 03/2025',
+      duration: '01/2025 - 04/2025',
       description: "Interned at AKQA as an Intern and developed an internal 'Leave Management System' for the company including both Frontend and Backend.",
       techStack: ['TypeScript', 'ExpressJS', 'ReactJS', 'Postgres', 'Sequelize ORM'],
-      current: true
+      current: false
     },
     {
       company: 'Google Developer Student Clubs',
       position: 'FullStack Developer',
       location: 'Vellore',
       duration: '03/2024 - Present',
-      description: 'Active contributor developing innovative projects and leading technical initiatives within the GDSC community.',
+      description: 'Senior Core member of the prestigious Google Developer Student Clubs. Core group responsible for organizing annual Hackathon and other programming related events.',
       techStack: ['React', 'Node.js', 'MongoDB', 'JavaScript', 'Git'],
       current: true
     }

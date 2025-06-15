@@ -1,29 +1,33 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Section from './Section';
 import { Github, Linkedin } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [state, handleSubmit] = useForm("xqabbler");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-    alert('Message sent! Thank you for reaching out.');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  if (state.succeeded) {
+    return (
+      <Section id="contact" className="bg-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-cyber-pink">
+              &gt; MESSAGE SENT!
+            </h2>
+            <p className="text-2xl text-cyber-cyan mb-4">Thanks for reaching out!</p>
+            <p className="text-gray-300">I'll get back to you as soon as possible.</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="cyber-button mt-8"
+            >
+              SEND ANOTHER MESSAGE
+            </button>
+          </div>
+        </div>
+      </Section>
+    );
+  }
 
   return (
     <Section id="contact" className="bg-black">
@@ -117,11 +121,15 @@ const Contact: React.FC = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-black border border-gray-600 rounded focus:border-cyber-pink focus:outline-none text-white"
                   placeholder="Your Name"
+                />
+                <ValidationError 
+                  prefix="Name" 
+                  field="name"
+                  errors={state.errors}
+                  className="text-red-400 text-sm mt-1"
                 />
               </div>
 
@@ -133,11 +141,15 @@ const Contact: React.FC = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-black border border-gray-600 rounded focus:border-cyber-cyan focus:outline-none text-white"
                   placeholder="your.email@example.com"
+                />
+                <ValidationError 
+                  prefix="Email" 
+                  field="email"
+                  errors={state.errors}
+                  className="text-red-400 text-sm mt-1"
                 />
               </div>
 
@@ -148,20 +160,25 @@ const Contact: React.FC = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-black border border-gray-600 rounded focus:border-cyber-purple focus:outline-none text-white resize-none"
                   placeholder="Your message here..."
                 ></textarea>
+                <ValidationError 
+                  prefix="Message" 
+                  field="message"
+                  errors={state.errors}
+                  className="text-red-400 text-sm mt-1"
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full cyber-button"
+                disabled={state.submitting}
+                className="w-full cyber-button disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                SEND MESSAGE
+                {state.submitting ? 'SENDING...' : 'SEND MESSAGE'}
               </button>
             </form>
           </div>

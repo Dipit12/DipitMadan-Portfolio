@@ -12,35 +12,40 @@ const Projects: React.FC = () => {
       description: 'Developed an anonymous, one-on-one video chat platform, conceptually similar to Omegle. The application leverages WebRTC for real-time peer-to-peer video and audio communication and WebSockets for signaling, user matching, and managing connection states.',
       technologies: ['WebRTC', 'WebSockets', 'JavaScript', 'Node.js'],
       features: ['Real-time video chat', 'Anonymous matching', 'Peer-to-peer communication'],
-      category: 'Full Stack'
+      category: 'Full Stack',
+      githubUrl: 'https://github.com/Dipit12/RealTimeChatApp'
     },
     {
       title: 'Ask Your PDF',
       description: 'A Python/Flask web application that allows users to upload a PDF file and ask questions about its content. The application extracts text from the uploaded PDF, processes it in chunks, and utilizes OpenAI\'s GPT-3.5 Turbo model to provide concise answers based on the extracted text.',
       technologies: ['Python', 'Flask', 'OpenAI GPT-3.5', 'PDF Processing'],
       features: ['PDF text extraction', 'AI-powered Q&A', 'Document analysis'],
-      category: 'AI/ML'
+      category: 'AI/ML',
+      githubUrl: 'https://github.com/Dipit12/Ask_Your_PDF'
     },
     {
       title: 'AI Research Assistant',
       description: 'Auto Research AI is a full-stack application that allows users to input any research query and receive high-quality, summarized answers using web search data and generative AI. The platform streamlines the research process by combining SERP results with LLM-based summarization.',
       technologies: ['Full-stack', 'AI/ML', 'Web scraping', 'LLM integration'],
       features: ['Automated research', 'AI summarization', 'SERP integration'],
-      category: 'AI/ML'
+      category: 'AI/ML',
+      githubUrl: 'https://github.com/Dipit12/Auto-Research-AI'
     },
     {
       title: 'Stock Market Tracker',
       description: 'A stock market tracker made using Alphavantage API, that sends an SMS when a specific stock falls or goes up by X% using Twilio API. The message contains the percentage change along with a latest news article about the company using the News API.',
       technologies: ['Python', 'Alphavantage API', 'Twilio API', 'News API'],
       features: ['Real-time stock monitoring', 'SMS notifications', 'News integration'],
-      category: 'API Integration'
+      category: 'API Integration',
+      githubUrl: 'https://github.com/Dipit12/Stock-Market-Tracker'
     },
     {
       title: 'Automatic Spotify Playlist Builder',
       description: 'A tool that scrapes the Billboard 100 using Beautiful Soup, searches each song on Spotify and adds it to a playlist automatically.',
       technologies: ['Python', 'Beautiful Soup', 'Spotify API', 'Web scraping'],
       features: ['Billboard 100 scraping', 'Spotify integration', 'Automated playlist creation'],
-      category: 'Automation'
+      category: 'Automation',
+      githubUrl: 'https://github.com/Dipit12/Billboard-scraper-and-Spotify-Project'
     }
   ];
 
@@ -65,9 +70,14 @@ const Projects: React.FC = () => {
                   {project.category}
                 </span>
                 <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="p-2 hover:text-cyber-pink transition-colors">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="p-2 hover:text-cyber-pink transition-colors"
+                  >
                     <Github size={18} />
-                  </button>
+                  </a>
                   <button className="p-2 hover:text-cyber-cyan transition-colors">
                     <ExternalLink size={18} />
                   </button>
@@ -117,9 +127,14 @@ const Projects: React.FC = () => {
 
         {/* View More Projects Button */}
         <div className="text-center mt-12">
-          <button className="cyber-button">
+          <a
+            href="https://github.com/Dipit12"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cyber-button inline-block"
+          >
             VIEW MORE ON GITHUB
-          </button>
+          </a>
         </div>
       </div>
     </Section>
