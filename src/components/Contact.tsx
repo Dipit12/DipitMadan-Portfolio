@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
                   <div className="w-2 h-2 bg-cyber-purple rounded-full"></div>
                   <div>
                     <span className="text-gray-400">Location:</span>
-                    <span className="text-white ml-2">Vellore, India</span>
+                    <span className="text-white ml-2">Gurgaon, India</span>
                   </div>
                 </div>
               </div>
